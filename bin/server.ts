@@ -13,5 +13,4 @@ function normalizePort(val: string)
   if( port > 0)
     return port;
   return false;
-
 }
