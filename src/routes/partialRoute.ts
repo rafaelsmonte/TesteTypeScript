@@ -5,4 +5,4 @@ const router = express.Router();
 router.get('/', controller.todasPropostas);
 router.post('/', controller.gravaProposta);
 
-module.exports = router;
+export default router;
