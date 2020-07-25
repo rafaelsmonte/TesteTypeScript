@@ -12,7 +12,8 @@ class Validacos
         var soma = 0;
         var resto;
         var i;
-        if(cpf == '00000000000') return false;
+        if(cpf == '00000000000') 
+            return false;
         for(i=1; i<=9; i++) 
             soma = soma + parseInt(cpf.substring(i-1, i)) * (11 - i);
         resto = (soma * 10) % 11;
@@ -33,7 +34,7 @@ class Validacos
             return false;
         return true;
     }
-    static menor18Anos(birthDate:Date)
+    static maior18Anos(birthDate:Date)
     {
         return new Date(birthDate.getFullYear()+18, birthDate.getMonth()-1, birthDate.getDate()) <= new Date();
     }

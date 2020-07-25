@@ -6,7 +6,6 @@
   "scripts": {
     "dev:init": "ts-node-dev --respawn --transpile-only bin/server.ts",
     "test": "jest --no-cache"
-    
   },
   "keywords": [],
   "author": "",
@@ -28,11 +27,11 @@
     "ts-jest": "^26.1.3"
   },
   "jest": {
-    "transform": { 
-      "^.+\\.ts$": "ts-jest" 
+    "transform": {
+      "^.+\\.ts$": "ts-jest"
     },
     "testRegex": "\\.test\\.ts",
-    "moduleFileExtensions": [ 
+    "moduleFileExtensions": [
       "ts",
       "tsx",
       "js",
