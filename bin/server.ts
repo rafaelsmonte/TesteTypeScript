@@ -4,7 +4,7 @@ require('dotenv').config();
 const port = normalizePort(process.env.PORT || '3000');
 const server = http.createServer(app);
 server.listen(port)
-console.log('teste on '+port);
+console.log('Servidor rodando na porta: '+port);
 function normalizePort(val: string)
 {
   const port = parseInt(val,10);

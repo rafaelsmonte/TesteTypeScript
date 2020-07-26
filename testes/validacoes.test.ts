@@ -1,4 +1,5 @@
 import validacoes from '../src/services/Validacoes'
+
 test('isCPF', () => {
   expect(validacoes.isCPF('36801792865')).toBeTruthy();
   expect(validacoes.isCPF('368.017.928-65')).toBeFalsy();
@@ -11,6 +12,12 @@ test('menor18Anos', () => {
   expect(validacoes.maior18Anos(new Date('2002-07-24'))).toBeTruthy();
   expect(validacoes.maior18Anos(new Date('2002-07-25'))).toBeTruthy();
   expect(validacoes.maior18Anos(new Date('2002-07-26'))).toBeFalsy();
+});
+
+test('menor65Anos', () => {
+  expect(validacoes.menor65Anos(new Date('1955-07-24'))).toBeFalsy();
+  expect(validacoes.menor65Anos(new Date('1955-07-25'))).toBeFalsy();
+  expect(validacoes.menor65Anos(new Date('1955-07-26'))).toBeTruthy();
 });
 
 test('isEmail', () => {

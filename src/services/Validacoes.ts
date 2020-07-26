@@ -41,6 +41,13 @@ class Validacos
         hoje.setHours(0);
         return birthDate <= hoje;
     }
+    static menor65Anos(birthDate:Date)
+    {
+        birthDate.setFullYear(birthDate.getFullYear()+65);
+        let hoje = new Date();
+        hoje.setHours(0);
+        return birthDate >= hoje;
+    }
 
 }
 

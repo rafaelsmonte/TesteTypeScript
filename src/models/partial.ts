@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 const schema = new Schema({
 
   productId: {
-    type: Number,
+    type: String,
   },
   name: {
     type: String,
@@ -12,14 +12,14 @@ const schema = new Schema({
     type: String,
   },
   CPF: {
-    type: Number,
+    type: String,
   },
   birthDate: {
-    type: Date,
+    type: String,
   },
   phone: {
-    type: Number,
+    type: String,
   },
 });
 
-module.exports = mongoose.model("partial", schema);
+export default mongoose.model("partial", schema);
