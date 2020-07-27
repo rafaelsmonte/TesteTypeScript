@@ -25,19 +25,19 @@ const schema = new Schema({
   CPF: {
     type: Number,
     required: [true, 'CPF é obrigatorio'],
+    validate: [Validacoes.isCPF, 'CPF inválido'],
 
   },
   birthDate: {
     type: Date,
     required: [true, 'Data de nascimento é obrigatorio'],
-
+    validate: [Validacoes.idadeEntre18e65, 'Idade deve ser entre 18 e 65 anos'], 
   },
   phone: {
     type: Number,
     required: [true, 'Telefone é obrigatorio'],
-
-
+    validate: [Validacoes.isPhone, 'Telefone em formato incorreto'], 
   },
 });
 
-module.exports = mongoose.model("final", schema);
+export default mongoose.model("final", schema);

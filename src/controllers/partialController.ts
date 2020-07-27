@@ -2,12 +2,33 @@ import mongoose from "mongoose";
 import { Request, Response } from 'express';
 import partial from '../models/partial'
 export default {
-  todasPropostas(req: Request, res: Response) {
-    res.status(201).send("ok partial");
+  async todasPropostas(req: Request, res: Response) {
+    res.status(201).send(await partial.find()); //rota só para testes
+  },
+  async deletaProposta(req: Request, res: Response) {
+    try {
+      const { _id } = req.body;
+      var proposta = await partial.findByIdAndDelete(_id);
+      if (proposta) {
+        res.status(200).send({
+          'message': 'Proposta deletada com sucesso',
+          'sucess': true,
+        });
+      } else {
+        res.status(404).send({
+          'message': 'Proposta não encontrada',
+          'sucess': false,
+        });
+      }
+    } catch (e) {
+      res.status(400).send({
+        'message': 'Erro ao deletar a proposta',
+        'sucess': false,
+      });
+    }
   },
   async gravaProposta(req: Request, res: Response) {
     const { token } = req.body;
-
     if (token) {
       var proposta: any;
       try {

@@ -9,14 +9,14 @@ test('isCPF', () => {
 });
 
 test('menor18Anos', () => {
-  expect(validacoes.maior18Anos(new Date('2002-07-24'))).toBeTruthy();
-  expect(validacoes.maior18Anos(new Date('2002-07-25'))).toBeTruthy();
+  expect(validacoes.idadeEntre18e65(new Date('2002-07-24'))).toBeTruthy();
+  expect(validacoes.idadeEntre18e65(new Date('2002-07-25'))).toBeTruthy();
   //expect(validacoes.maior18Anos(new Date('2002-07-26'))).toBeFalsy();
 });
 
 test('menor65Anos', () => {
-  expect(validacoes.menor65Anos(new Date('1955-07-24'))).toBeFalsy();
-  expect(validacoes.menor65Anos(new Date('1955-07-25'))).toBeFalsy();
+  expect(validacoes.idadeEntre18e65(new Date('1955-07-24'))).toBeFalsy();
+  expect(validacoes.idadeEntre18e65(new Date('1955-07-25'))).toBeFalsy();
   //expect(validacoes.menor65Anos(new Date('1955-07-26'))).toBeTruthy();
 });
 
