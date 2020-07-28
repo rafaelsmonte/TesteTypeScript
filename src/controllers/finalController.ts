@@ -6,16 +6,30 @@ export default {
     res.status(201).send(await final.find()); //rota para testes
   },
   async gravaProposta(req: Request, res: Response) {
-      var propostaFinal = new final(req.body);
-      propostaFinal.save().then(x => {
-        res.status(201).send({
-          'message': 'Proposta gravada com sucesso'
-        });
-      }).catch(e=>{
-        res.status(401).send({
-          'message': 'erro ao cadastra a proposta final',
-          'data': e
+    var propostaFinal = new final(req.body);
+    propostaFinal.save().then(x => {
+      res.status(201).send({
+        'message': 'Proposta gravada com sucesso'
+      });
+    }).catch(e => {
+      res.status(401).send({
+        'message': 'erro ao cadastrar a proposta final',
+        'data': e
       });
     });
+  },
+  cpfPodeFazerProposta(cpf:String) {
+    try {
+      var data = new Date();
+      data.setDate(data.getDate() - 65);
+      var proposta =  final.find({ cpf, 'createAT': { $gte: data } });
+      if (proposta)
+        return false;
+      return true;
+      // data < data banco == false else true
+
+    } catch (e) {
+      return false;
+    }
   }
 }
