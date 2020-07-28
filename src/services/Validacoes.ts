@@ -1,4 +1,7 @@
+import final from '../models/final'
+
 class Validacos {
+    
     static isEmail(email: string): boolean {
         return /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/.test(email);
     }
@@ -47,6 +50,18 @@ class Validacos {
         }
         return false;
     }
+    static async cpfPodeFazerProposta(cpf: String) {
+        try {
+          var data = new Date();
+          data.setDate(data.getDate() - 65);
+          var proposta = await final.find({ cpf, 'createAT': { $gte: data } });
+          if (proposta.length)
+            return false;
+          return true;
+        } catch (e) {
+          return false;
+        }
+      }
    
 
 }

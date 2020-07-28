@@ -24,11 +24,11 @@ const schema = new Schema({
 
   },
   CPF: {
-    type: Number,
+    type: String,
     required: [true, 'CPF é obrigatorio'],
     validate:  [
       { validator: Validacoes.isCPF, message: 'CPF inválido' },
-      { validator: final.cpfPodeFazerProposta, message: 'Esse CPF já fez um proposta nos ultimos 65 dias' }
+      { validator: Validacoes.cpfPodeFazerProposta, message: 'Esse CPF já fez uma proposta nos ultimos 65 dias' }
     ]
   },
   birthDate: {

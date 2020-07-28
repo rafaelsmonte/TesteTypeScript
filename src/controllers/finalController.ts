@@ -18,18 +18,5 @@ export default {
       });
     });
   },
-  cpfPodeFazerProposta(cpf:String) {
-    try {
-      var data = new Date();
-      data.setDate(data.getDate() - 65);
-      var proposta =  final.find({ cpf, 'createAT': { $gte: data } });
-      if (proposta)
-        return false;
-      return true;
-      // data < data banco == false else true
-
-    } catch (e) {
-      return false;
-    }
-  }
+  
 }
