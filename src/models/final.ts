@@ -4,10 +4,7 @@ import final from '../controllers/finalController'
 const Schema = mongoose.Schema;
 const schema = new Schema({
 
-  productId: {
-    type: Number,
-    required: [true, 'ID do produto é obrigatorio'],
-  },
+ 
   name: {
     type: String,
     required: [true, 'Nome é obrigatorio'],
@@ -17,7 +14,7 @@ const schema = new Schema({
   },
   email: {
     type: String,
-    required: [true, 'Email do produto é obrigatorio'],
+    required: [true, 'Email é obrigatorio'],
     trim: true,
     lowercase: true,
     validate: [Validacoes.isEmail, 'Email inválido'],

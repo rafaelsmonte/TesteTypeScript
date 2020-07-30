@@ -41,12 +41,13 @@ class Validacos {
         idade.setFullYear(idade.getFullYear() + 18);
         let hoje = new Date();
         hoje.setHours(0);
+        idade = birthDate;
         if(idade <= hoje)
         {
-            birthDate.setFullYear(birthDate.getFullYear() + 65);
+            idade.setFullYear(idade.getFullYear() + 65);
             let hoje = new Date();
             hoje.setHours(0);
-            return birthDate >= hoje;
+            return idade >= hoje;
         }
         return false;
     }
